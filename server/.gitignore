@@ -1,0 +1,4 @@
+.env
+/target
+*.txt
+assets/

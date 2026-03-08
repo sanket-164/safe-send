@@ -1,0 +1,325 @@
+{
+  "info": {
+    "_postman_id": "bd5828db-bf5f-4930-bc4e-ee2a6348528f",
+    "name": "Safe Send",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "32603937"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Sanket\",\r\n    \"email\": \"sanket@s.com\",\r\n    \"password\": \"12345678\",\r\n    \"passwordConfirm\": \"12345678\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BaseURL}}/auth/register",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"sanket@s.com\",\r\n    \"password\": \"12345678\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BaseURL}}/auth/login",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Me",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BaseURL}}/users/me",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "users",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update User Name",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Sanket Sadadiya\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BaseURL}}/users/name",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "users",
+                "name"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update User Password",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"new_password\": \"12345678\",\r\n    \"new_password_confirm\": \"12345678\",\r\n    \"old_password\": \"12345678\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BaseURL}}/users/password",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "users",
+                "password"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search By Email",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BaseURL}}/users/search-emails?query=sanket",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "users",
+                "search-emails"
+              ],
+              "query": [
+                {
+                  "key": "query",
+                  "value": "sanket"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "File",
+      "item": [
+        {
+          "name": "Get Received",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{BaseURL}}/list/receive",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "list",
+                "receive"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Send",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BaseURL}}/list/send",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "list",
+                "send"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Upload",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "fileUpload",
+                  "type": "file",
+                  "uuid": "a9c4b49b-f2a8-479f-baad-169dc0c438da",
+                  "src": "postman-cloud:///1f11603b-6f88-47d0-85f2-bfdc525b634c"
+                },
+                {
+                  "key": "recipient_email",
+                  "value": "sanket@ss.com",
+                  "type": "text",
+                  "uuid": "1527841d-4cd7-4ed2-9940-32e911a59442"
+                },
+                {
+                  "key": "password",
+                  "value": "12345678",
+                  "type": "text",
+                  "uuid": "ebaaa914-2dba-481f-9db3-de1b911fd6ef"
+                },
+                {
+                  "key": "expiration_date",
+                  "value": "2026-03-09T18:30:00Z",
+                  "type": "text",
+                  "uuid": "ebbcb0a4-6260-49f9-ac5c-928f231ac58a"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{BaseURL}}/file/upload",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "file",
+                "upload"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Retrieve",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"shared_id\": \"9844c824-7a5b-4dd4-9b9a-6704ad94a278\",\r\n    \"password\": \"12345678\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BaseURL}}/file/retrieve",
+              "host": [
+                "{{BaseURL}}"
+              ],
+              "path": [
+                "file",
+                "retrieve"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Server Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BaseURL}}",
+          "host": [
+            "{{BaseURL}}"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "BaseURL",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}
